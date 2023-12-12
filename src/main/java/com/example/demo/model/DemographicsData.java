@@ -1,13 +1,11 @@
 package com.example.demo.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "demographics")
+@IdClass(DemographicsId.class)
 public class DemographicsData {
 
 
@@ -33,7 +31,6 @@ public class DemographicsData {
     private Integer sdmxCode;
 
     @Column(name = "LocTypeID")
-
     @Schema(example = "4")
     private Integer locTypeID;
 
@@ -57,6 +54,7 @@ public class DemographicsData {
     @Schema(example = "Medium")
     private String variant;
 
+    @Id
     @Column(name = "Time")
     @Schema(example = "2023")
     private Integer time;
